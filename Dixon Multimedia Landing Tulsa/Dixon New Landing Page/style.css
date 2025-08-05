@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #ffffff;
+  padding: 1.5rem;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.logo-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: #ffffff;
+  animation: logoFadeIn 2s ease-out;
+}
+
+.logo-image {
+  width: 480px;
+  height: auto;
+  animation: logoFadeIn 2s ease-out;
+  margin-top: 1rem;
+}
+
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.main-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: stretch;
+  z-index: 2;
+  position: relative;
+}
+
+.menu-button {
+  display: block;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #000000dd;
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+  animation-delay: var(--delay);
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.menu-button:hover {
+  background-color: #dfffff;
+    color: black; /* rollover text turns black */
+}
+
+.menu-button:active {
+  animation: pulse 0.4s ease;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.call-now {
+  position: fixed;             /* Keeps the button fixed on the screen even when scrolling */
+  bottom: 0.5;                   /* Positions the button at the very bottom of the screen */
+  width: 100%;                 /* Makes the container span the full width */
+  left: 0;                     /* Aligns the container to the left edge */
+  text-align: center;          /* Centers the button horizontally */
+  z-index: 10;                 /* Ensures it appears above most other elements */
+}
+
+.call-button {
+  background-color: #005512;   /* Dark green background color for the button */
+  color: white;                /* White text color */
+  padding: 1.2rem 3rem;        /* Top/bottom = 1.2rem, Left/right = 3rem padding inside the button */
+  border-radius: 12px;         /* Rounded corners for the button */
+  font-size: 1.2rem;           /* Increases font size for readability */
+  text-decoration: none;       /* Removes underline from the link */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  /* Adds a soft shadow for depth */
+  transition: background 0.3s ease;          /* Smooth background color transition on hover */
+}
+
+.call-button:hover {
+  background-color: #0c0058;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .menu-button {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .logo-image {
+    width: 140px;
+  }
+
+  .call-button {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
+}
